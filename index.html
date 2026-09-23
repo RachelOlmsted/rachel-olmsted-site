@@ -181,16 +181,16 @@
     .contact-links { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
     .contact-links a { font-family: var(--display); font-size: clamp(1.3rem, 2.5vw, 2.2rem); font-weight: 700; letter-spacing: -.06em; text-decoration: none; border-bottom: 2px solid var(--ink); }
     .contact-links a:hover { color: var(--blue); border-color: var(--blue); }
-    .weather-card { width: min(100%, 380px); margin-top: 34px; padding: 18px; border: 1px solid var(--ink); background: var(--lime); box-shadow: 7px 7px 0 var(--coral); }
-    .weather-label { margin-bottom: 18px; color: var(--blue); font-size: .65rem; letter-spacing: .08em; text-transform: uppercase; }
+    .weather-card { width: min(100%, 380px); margin-top: 34px; padding: 18px; border: 1px solid var(--line); background: #e8e5dd; box-shadow: 5px 5px 0 rgba(21, 21, 21, .14); }
+    .weather-label { margin-bottom: 18px; color: rgba(21, 21, 21, .62); font-size: .65rem; letter-spacing: .08em; text-transform: uppercase; }
     .weather-reading { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 16px; min-height: 72px; }
     .weather-emoji { font-size: 3.6rem; line-height: 1; }
     .weather-temperature { font-family: var(--display); font-size: 3.4rem; font-weight: 800; line-height: .9; letter-spacing: -.08em; }
     .weather-summary { margin-top: 8px; font-family: var(--display); font-size: 1rem; font-weight: 700; letter-spacing: -.04em; }
     .weather-details { margin: 18px 0; color: rgba(21, 21, 21, .72); font-size: .68rem; }
-    .weather-action { padding: 9px 12px; border: 1px solid var(--ink); color: var(--paper); background: var(--ink); font: inherit; font-size: .65rem; text-transform: uppercase; cursor: pointer; }
-    .weather-action:hover { color: var(--ink); background: var(--paper); }
-    .weather-action:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+    .weather-action { padding: 9px 12px; border: 1px solid rgba(21, 21, 21, .58); color: var(--ink); background: transparent; font: inherit; font-size: .65rem; text-transform: uppercase; cursor: pointer; }
+    .weather-action:hover { color: var(--paper); background: var(--ink); }
+    .weather-action:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
     .weather-action:disabled { cursor: wait; opacity: .65; }
     .weather-status { display: block; margin-top: 10px; color: rgba(21, 21, 21, .65); font-size: .68rem; }
 
@@ -398,7 +398,8 @@
         () => {
           weatherAction.disabled = false;
           weatherAction.textContent = 'Use my location';
-          setWeatherStatus('Location permission was not granted.');
+          weatherDetails.textContent = 'Enable location to see your weather forecast.';
+          setWeatherStatus('Location access is needed for local conditions.');
         },
         { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 }
       );
