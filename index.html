@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rachel Olmsted is a designer creating thoughtful identities, digital experiences, and visual systems.">
+  <title>Rachel Olmsted — Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #151515;
+      --paper: #f4f0e8;
+      --blue: #3155e7;
+      --coral: #ff765d;
+      --lime: #c9e866;
+      --line: rgba(21, 21, 21, .2);
+      --display: "Syne", sans-serif;
+      --mono: "DM Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--mono);
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    ::selection { color: var(--paper); background: var(--blue); }
+
+    .shell { width: min(1240px, calc(100% - 48px)); margin: 0 auto; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--blue);
+      font-size: .7rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--coral);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 86px;
+      border-bottom: 1px solid var(--line);
+    }
+    .mark {
+      font-family: var(--display);
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -.05em;
+      text-decoration: none;
+    }
+    nav { display: flex; gap: 28px; font-size: .72rem; }
+    nav a { text-decoration: none; }
+    nav a:hover { color: var(--blue); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+      align-items: end;
+      gap: clamp(40px, 8vw, 130px);
+      min-height: 640px;
+      padding: 82px 0 76px;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 760px;
+      margin-bottom: 32px;
+      font-family: var(--display);
+      font-size: clamp(4rem, 10vw, 9.2rem);
+      font-weight: 800;
+      line-height: .84;
+      letter-spacing: -.09em;
+    }
+    .hero-copy { max-width: 430px; margin-left: auto; }
+    .hero-copy p { font-size: .86rem; }
+    .hero-image-wrap { position: relative; margin-top: 42px; }
+    .hero-image-wrap::before {
+      content: "selected works / 2021—26";
+      position: absolute;
+      top: -32px;
+      left: 0;
+      color: var(--blue);
+      font-size: .64rem;
+      text-transform: uppercase;
+    }
+    .hero-image {
+      width: 100%;
+      aspect-ratio: 1.22;
+      object-fit: cover;
+      filter: saturate(.85);
+      border-radius: 0 0 120px 0;
+    }
+    .sticker {
+      position: absolute;
+      right: -24px;
+      bottom: -30px;
+      display: grid;
+      place-items: center;
+      width: 116px;
+      height: 116px;
+      padding: 18px;
+      border-radius: 50%;
+      color: var(--ink);
+      background: var(--lime);
+      font-family: var(--display);
+      font-size: .95rem;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+      transform: rotate(11deg);
+    }
+
+    .section { padding: 105px 0; border-top: 1px solid var(--line); }
+    .section-heading {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 30px;
+      margin-bottom: 55px;
+    }
+    .section-heading h2 {
+      max-width: 640px;
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(2.5rem, 6vw, 5.9rem);
+      line-height: .9;
+      letter-spacing: -.08em;
+    }
+    .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 55px 28px; }
+    .project { text-decoration: none; }
+    .project-image {
+      width: 100%;
+      aspect-ratio: 1.3;
+      object-fit: cover;
+      margin-bottom: 18px;
+      transition: transform .35s ease, filter .35s ease;
+    }
+    .project:hover .project-image { transform: translateY(-8px); filter: saturate(1.2); }
+    .project:nth-child(2) .project-image { border-radius: 90px 0 0; }
+    .project:nth-child(3) .project-image { border-radius: 0 0 90px 0; }
+    .project:nth-child(4) .project-image { border-radius: 0 90px 0 0; }
+    .project-meta { display: flex; justify-content: space-between; gap: 14px; font-size: .7rem; text-transform: uppercase; }
+    .project-title { color: var(--blue); }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 10vw, 160px);
+      align-items: start;
+    }
+    .about h2 { max-width: 640px; margin: 0; font-family: var(--display); font-size: clamp(2.8rem, 6vw, 6.6rem); line-height: .88; letter-spacing: -.08em; }
+    .about-text { max-width: 460px; padding-top: 12px; }
+    .about-text p { font-size: .88rem; }
+    .facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px 12px; margin-top: 48px; padding-top: 22px; border-top: 1px solid var(--line); }
+    .fact strong { display: block; margin-bottom: 5px; color: var(--blue); font-family: var(--display); font-size: 1.6rem; }
+    .fact span { font-size: .65rem; text-transform: uppercase; }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: end;
+      min-height: 480px;
+    }
+    .contact h2 { max-width: 700px; margin: 0; font-family: var(--display); font-size: clamp(3.7rem, 9vw, 9rem); line-height: .83; letter-spacing: -.1em; }
+    .contact-links { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+    .contact-links a { font-family: var(--display); font-size: clamp(1.3rem, 2.5vw, 2.2rem); font-weight: 700; letter-spacing: -.06em; text-decoration: none; border-bottom: 2px solid var(--ink); }
+    .contact-links a:hover { color: var(--blue); border-color: var(--blue); }
+
+    footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px 0 30px; border-top: 1px solid var(--line); font-size: .65rem; text-transform: uppercase; }
+    .reveal { animation: rise .8s both; }
+    .reveal-delay { animation: rise .8s .16s both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 32px, 560px); }
+      header { min-height: 70px; }
+      nav { gap: 14px; font-size: .62rem; }
+      .hero { display: block; min-height: auto; padding: 70px 0 100px; }
+      h1 { font-size: clamp(4.2rem, 21vw, 8rem); margin-bottom: 38px; }
+      .hero-copy { margin-left: 0; }
+      .hero-image-wrap { margin-top: 82px; }
+      .sticker { right: -7px; width: 92px; height: 92px; font-size: .76rem; }
+      .section { padding: 78px 0; }
+      .section-heading, .about, .contact { grid-template-columns: 1fr; gap: 28px; }
+      .section-heading { margin-bottom: 40px; }
+      .section-heading h2 { font-size: 3.5rem; }
+      .work-grid { grid-template-columns: 1fr; gap: 46px; }
+      .contact { min-height: 0; }
+      .contact h2 { font-size: 4.5rem; }
+      footer { display: block; }
+      footer span { display: block; margin-top: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <a class="mark" href="#top" aria-label="Rachel Olmsted home">RO / 26</a>
+      <nav aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="intro-title">
+        <div class="reveal">
+          <div class="eyebrow">Independent designer / New York + everywhere</div>
+          <h1 id="intro-title">Rachel<br><span style="color: var(--blue);">Olmsted</span></h1>
+          <p style="max-width: 390px; font-size: .86rem;">I make visual identities and digital experiences for people building a more considered future.</p>
+        </div>
+        <div class="hero-copy reveal-delay">
+          <div class="hero-image-wrap">
+            <img class="hero-image" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85" alt="A bright, creative studio with desks and plants">
+            <div class="sticker">Good ideas<br>need room<br>to grow.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="work" aria-labelledby="work-title">
+        <div class="section-heading">
+          <div class="eyebrow">A few things I’ve made</div>
+          <h2 id="work-title">Work that holds attention.</h2>
+        </div>
+        <div class="work-grid">
+          <a class="project" href="#contact">
+            <img class="project-image" src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=85" alt="Colorful printed design materials on a desk">
+            <div class="project-meta"><span class="project-title">Field Notes / Brand identity</span><span>2026</span></div>
+          </a>
+          <a class="project" href="#contact">
+            <img class="project-image" src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1200&q=85" alt="Laptop displaying a minimal website design">
+            <div class="project-meta"><span class="project-title">Common Ground / Digital</span><span>2025</span></div>
+          </a>
+          <a class="project" href="#contact">
+            <img class="project-image" src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=85" alt="Graphic design sketches and color swatches">
+            <div class="project-meta"><span class="project-title">Morrow / Campaign</span><span>2024</span></div>
+          </a>
+          <a class="project" href="#contact">
+            <img class="project-image" src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=85" alt="Hands working on a tablet in a design studio">
+            <div class="project-meta"><span class="project-title">Soft Systems / Product</span><span>2023</span></div>
+          </a>
+        </div>
+      </section>
+
+      <section class="section about" id="about" aria-labelledby="about-title">
+        <h2 id="about-title">Design with a point of view.</h2>
+        <div class="about-text">
+          <p>I’m Rachel, a designer interested in the space between clarity and surprise. I work with founders, cultural teams, and kind people with ambitious ideas.</p>
+          <p>My practice moves between strategy, identity, art direction, and the details that make a digital place feel human.</p>
+          <div class="facts">
+            <div class="fact"><strong>12</strong><span>Years making</span></div>
+            <div class="fact"><strong>04</strong><span>Design disciplines</span></div>
+            <div class="fact"><strong>18</strong><span>Happy collaborators</span></div>
+            <div class="fact"><strong>∞</strong><span>Good questions</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Have a good one?</h2>
+        <div class="contact-links">
+          <div class="eyebrow">Let’s make something thoughtful</div>
+          <a href="mailto:hello@rachelolmsted.com">Email me ↗</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram ↗</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Rachel Olmsted / Designer</span>
+      <span>Made with curiosity · © 2026</span>
+    </footer>
+  </div>
+</body>
+</html>
