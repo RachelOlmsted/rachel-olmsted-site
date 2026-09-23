@@ -182,6 +182,9 @@
     .contact-links a { font-family: var(--display); font-size: clamp(1.3rem, 2.5vw, 2.2rem); font-weight: 700; letter-spacing: -.06em; text-decoration: none; border-bottom: 2px solid var(--ink); }
     .contact-links a:hover { color: var(--blue); border-color: var(--blue); }
     .weather-card { width: min(100%, 380px); margin-top: 34px; padding: 18px; border: 1px solid var(--line); background: #e8e5dd; box-shadow: 5px 5px 0 rgba(21, 21, 21, .14); }
+    .hero-weather { margin: 0 0 34px; }
+    .hero-weather .weather-label { margin-bottom: 12px; }
+    .hero-weather .weather-details { margin: 12px 0; }
     .weather-label { margin-bottom: 18px; color: rgba(21, 21, 21, .62); font-size: .65rem; letter-spacing: .08em; text-transform: uppercase; }
     .weather-reading { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 16px; min-height: 72px; }
     .weather-emoji { font-size: 3.6rem; line-height: 1; }
@@ -239,6 +242,19 @@
           <p style="max-width: 390px; font-size: .86rem;">I make visual identities and digital experiences for people building a more considered future.</p>
         </div>
         <div class="hero-copy reveal-delay">
+          <div class="weather-card hero-weather" aria-live="polite">
+            <div class="weather-label">A little atmosphere, wherever you are</div>
+            <div class="weather-reading">
+              <span class="weather-emoji" id="weather-emoji" aria-hidden="true">🌤️</span>
+              <div>
+                <div class="weather-temperature" id="weather-temperature">--°</div>
+                <div class="weather-summary" id="weather-summary">Your local weather</div>
+              </div>
+            </div>
+            <p class="weather-details" id="weather-details">Share your location to see current conditions.</p>
+            <button class="weather-action" id="weather-action" type="button">Use my location</button>
+            <span class="weather-status" id="weather-status" role="status"></span>
+          </div>
           <div class="hero-image-wrap">
             <img class="hero-image" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85" alt="A bright, creative studio with desks and plants">
             <div class="sticker">Good ideas<br>need room<br>to grow.</div>
@@ -291,19 +307,6 @@
           <div class="eyebrow">Let’s make something thoughtful</div>
           <a href="mailto:hello@rachelolmsted.com">Email me ↗</a>
           <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram ↗</a>
-          <div class="weather-card" aria-live="polite">
-            <div class="weather-label">A little atmosphere, wherever you are</div>
-            <div class="weather-reading">
-              <span class="weather-emoji" id="weather-emoji" aria-hidden="true">🌤️</span>
-              <div>
-                <div class="weather-temperature" id="weather-temperature">--°</div>
-                <div class="weather-summary" id="weather-summary">Your local weather</div>
-              </div>
-            </div>
-            <p class="weather-details" id="weather-details">Share your location to see current conditions.</p>
-            <button class="weather-action" id="weather-action" type="button">Use my location</button>
-            <span class="weather-status" id="weather-status" role="status"></span>
-          </div>
         </div>
       </section>
     </main>
